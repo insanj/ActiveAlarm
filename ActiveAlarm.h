@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SpringBoard : UIApplication
--(void)applicationOpenURL:(id)arg1 publicURLsOnly:(BOOL)arg2;
+- (void)applicationOpenURL:(id)arg1 publicURLsOnly:(BOOL)arg2;
 @end
 
 @interface ClockManager : NSObject
