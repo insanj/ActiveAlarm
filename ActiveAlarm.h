@@ -9,5 +9,14 @@
 + (id)urlForClockAppSection:(int)arg1;
 @end
 
-@interface ActiveAlarm : NSObject <LAListener>
+@interface ActiveAlarmClock : NSObject <LAListener>
+@end
+
+@interface ActiveAlarmAlarm : NSObject <LAListener>
+@end
+
+@interface ActiveAlarmStopwatch : NSObject <LAListener>
+@end
+
+@interface ActiveAlarmTimer : NSObject <LAListener>
 @end

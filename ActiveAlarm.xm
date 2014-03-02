@@ -3,18 +3,68 @@
 
 #import "ActiveAlarm.h"
 
-@implementation ActiveAlarm
+static void AALaunchToTab(int tab){
+	NSLog(@"[ActiveAlarm] Recieved Activator trigger, launching Clock app to tab %i now...", tab);
+	[(SpringBoard *)[UIApplication sharedApplication] applicationOpenURL:[%c(ClockManager) urlForClockAppSection:tab] publicURLsOnly:NO];
+}
+
+@implementation ActiveAlarmClock
 
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event{
 	[event setHandled:YES];
-	NSLog(@"[ActiveAlarm] Recieved event (%@), launching Clock app now...", event);
-	[(SpringBoard *)[UIApplication sharedApplication] applicationOpenURL:[%c(ClockManager) urlForClockAppSection:1] publicURLsOnly:NO];
+	AALaunchToTab(0);
 }
 
 + (void)load{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"libactivator.ActiveAlarm"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:@"libactivator.ActiveAlarmClock"];
 	[pool release];
 }
 
-@end 
+@end
+
+@implementation ActiveAlarmAlarm
+
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event{
+	[event setHandled:YES];
+	AALaunchToTab(1);
+}
+
++ (void)load{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:@"libactivator.ActiveAlarmAlarm"];
+	[pool release];
+}
+
+@end
+
+
+@implementation ActiveAlarmStopwatch
+
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event{
+	[event setHandled:YES];
+	AALaunchToTab(2);
+}
+
++ (void)load{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:@"libactivator.ActiveAlarmStopwatch"];
+	[pool release];
+}
+
+@end
+
+@implementation ActiveAlarmTimer
+
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event{
+	[event setHandled:YES];
+	AALaunchToTab(3);
+}
+
++ (void)load{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:@"libactivator.ActiveAlarmTimer"];
+	[pool release];
+}
+
+@end

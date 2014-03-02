@@ -1,11 +1,10 @@
 Package: com.insanj.activealarm
 Name: ActiveAlarm
-Pre-Depends: firmware (>= 7.0)
 Depends: mobilesubstrate, libactivator
-Version: 0.1
+Version: 1.0.1
 Architecture: iphoneos-arm
-Description: Open the Clock app to your Alarms.
+Description: Open to specific Clock app tabs.
 Maintainer: Julian Weiss <insanjmail@gmail.com>
 Author: Julian (insanj) Weiss
 Section: Tweaks
-Icon: file:///Library/Activator/Listeners/libactivator.ActiveAlarm/Icon-small@2x.png
+Icon: file:///Library/Activator/Listeners/libactivator.ActiveAlarmClock/Icon-small@2x.png
